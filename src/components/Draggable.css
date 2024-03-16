@@ -1,0 +1,17 @@
+.draggable {
+  position: absolute;
+  bottom: 23%;
+  left: 13%;
+  background-color: black;
+  border-radius: 100px;
+  transform: rotate(-15deg);
+  width: 192px;
+  height: 192px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+  user-select: none;
+  z-index: 999;
+  will-change: transform;
+}
