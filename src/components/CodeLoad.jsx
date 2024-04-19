@@ -1,19 +1,10 @@
 import { useState, useEffect } from 'react'
 import './CodeLoad.css'
 
-import { runCodeLoad } from '../vanilla/code-load.js'
+// the script is connected in the index.html file
+// because useEffect runs it twice! 
 
 function CodeLoad() {
-  useEffect(() => {
-    runCodeLoad()
-  }, [])
-
-  const css = `
-    .faded {
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-  `
  
   return (
   <div className="code-load"> 
@@ -81,7 +72,6 @@ function CodeLoad() {
       <hr />
     </div>
     <div className="codeload-scroll"></div>
-    <style>{css}</style>
   </div>
   )
 }

@@ -2,27 +2,26 @@
 
 TODO
 0. create cargo finctions directory
+1. deal with children
+2. deal with <br> /n
 !!! 3. check if content loaded and then run! => useEffect (but runs twice ? )
-
 */
 
-export function runCodeLoad() {
+function runCodeLoad() {
   // constrols
   const ANIM_DELEY = 70
   const ANIM_SPEED = 70
   const GROWING_MODE = true
   const ANIM_RUN_TIME = 1500 // interval run time (works if GROWING_MODE false)
   const RUN_ONCE = false
-  const ANIM_TRIGGER = '.codeload-trig' // 30% section in the viewport that triggers animation, should contain all selectors
+  const ANIM_TRIGGER = '.codeload-trig' // 200px section in the viewport that triggers animation, should contain all selectors
   const ELEMS_SELECTOR = '.codeload-elem' // (!) should contain only text roots (!) should be children of ANIM_TRIGGER
-  const OPACITY_TRANSITION =  600 // transition - falsy by default
+  const OPACITY_TRANSITION = 600 // transition - falsy by default
 
   const animContentPage = document.querySelector(ANIM_TRIGGER)
   const elemList = [...animContentPage.querySelectorAll(ELEMS_SELECTOR)]
 
-  elemList.forEach(el => {
-    el.originaltext = el.innerText
-  })
+  elemList.forEach(el => el.originaltext = el.innerText)
 
   // ******** cargo code ******** //
   // admin mode check
@@ -41,7 +40,6 @@ export function runCodeLoad() {
   const observeHomePage = new window.IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        console.log(isRunning)
         document.addEventListener('scroll', AnimateHomePage, { once: true })
       } 
     })
@@ -108,7 +106,6 @@ export function runCodeLoad() {
     }
 
     function scrambleText(text, count) {
-      console.log(count)
       const chars = '*?><[]&@#)(0%$-_:/1?!'.split('')
       return text.split('').map(x => randomInt(3) > 1 ? randomFromArray(chars) : x).slice(0, count).join('')
     }
@@ -122,3 +119,7 @@ export function runCodeLoad() {
     }
   }
 }
+
+addEventListener("load", (event) => {
+  runCodeLoad()
+})
