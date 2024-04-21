@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 import './ShuffleChars.css'
 
-// the script is connected in the index.html file
-// because useEffect runs it twice! 
-
 function ShuffleChars() {
   return (
   <div className="code-load"> 
