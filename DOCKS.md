@@ -18,17 +18,28 @@ using the `<script>` tag:
 
 name: `animation-name.js`
 
+<br><br>
+
 ### components
 The directory contains React components that serve as showcases for each animation. Not connected to 
 the animation files directly. Each component has `.jsx` and `.css` files with markup and styles respectively.
 
 name: `AnimationName.jsx` / `AnimationName.css`
 
+<br><br>
+
 ### controls
 Components that can set/change animation settings by passing an object with all the necessary parameters.
 
 name:
 
+### docs
+Components that contain tables with information about all animation settings/parametrs.
+The directory contains one additional file `docs.css` with styles that are reused by each docs component.
+
+name: `AnimationNameDocs.jsx`
+
+<br><br>
 
 ## Additional
 ### cargo
@@ -36,10 +47,16 @@ Functions that are used when an animation is applied to websites built with Carg
 
 name: `discribe-the-purpose.js`
 
+<br><br>
+
 ### assets
 ???
+
+<br><br>
 
 ## Styles
 `index.css` – reset file
 
 `App.css` – global styles
+
+<br><br>
