@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 // import Draggable from './components/Draggable.jsx'
-import CodeLoad from './components/CodeLoad.jsx'
+import ShuffleChars from './components/ShuffleChars.jsx'
 
 function App() {
   // const [theme, setTheme] = useState('dark') // dark, light
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="page">
-      <CodeLoad />
+      <ShuffleChars />
     </div>
   )
 }

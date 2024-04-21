@@ -1,13 +1,16 @@
 /*
 
 TODO
-1. deal with children
-2. deal with <br> /n
-3. Change function names
+1. check if imports can be done comditionally to remove cargo scripts
+2. make controls
 
 */
+
 import isAdmin from '../cargo/admin-mode-check.js'
 import isHomepage from '../cargo/target-page-check.js'
+
+// docks
+// 1. all elements that contains anything except text nodes, <br>, <br />, <br/>, &nbsp; will be skiped
 
 // constrols
 let ANIM_DELEY = 70
@@ -20,56 +23,62 @@ let ELEMS_SELECTOR = '.codeload-elem' // (!) should contain only text roots (!) 
 let OPACITY_TRANSITION = 600 // transition - falsy by default
 let OFFSET = '200px' // trigger distance (top of ANIM_TRIGGER and bottom of the screen), px or % (% of the screen), positive integer
 
-function runCodeLoad() {
-  const animContentPage = document.querySelector(ANIM_TRIGGER)
-  const elemList = animContentPage.querySelectorAll(ELEMS_SELECTOR)
+function runShuffleChars() {
+  // cargo scripts
+  // if (isAdmin()) return
+  // if (isHomepage()) return
+
+  const animTrigger = document.querySelector(ANIM_TRIGGER)
+  const elemList = animTrigger.querySelectorAll(ELEMS_SELECTOR)
 
   elemList.forEach(el => el.originaltext = el.innerText)
-
-  // ******** cargo code ******** //
-  if (isAdmin()) return
-  if (isHomepage()) return
-  // ******** cargo code ******** //
 
   let isRunning = false
 
   // intersection observer
-  const observeHomePage = new window.IntersectionObserver((entries, observer) => {
+  const observeTrigger = new window.IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        document.addEventListener('scroll', AnimateHomePage, { once: true })
+        document.addEventListener('scroll', animate, { once: true })
       }
     })
   }, { rootMargin: `0px 0px -${OFFSET}` })
 
-  observeHomePage.observe(animContentPage)
+  observeTrigger.observe(animTrigger)
 
-  // rows animation
-  function AnimateHomePage() {
+  // animation
+  function animate() {
     if (isRunning) return
     isRunning = true
 
-    async function runAnim() {
-      if (OPACITY_TRANSITION) {
-        elemList.forEach(elem => {
-          elem.style.opacity = '0'
-          let t = OPACITY_TRANSITION / 1000
-          elem.style.transition = 'opacity ' + t + 's ease'
-        })
-      }
-
+    async function startRun() {
       for (let i = 0; i < elemList.length; i++) {
+        if (hasChildren(elemList[i])) continue
+
+        if (OPACITY_TRANSITION) {
+          elemList[i].style.opacity = '0'
+          let t = OPACITY_TRANSITION / 1000
+          elemList[i].style.transition = 'opacity ' + t + 's ease'
+        }
+
         await addAnim(elemList[i])
+
         if (!RUN_ONCE && i === elemList.length - 1) {
           const lastRunTime = GROWING_MODE ? elemList[elemList.length - 1].innerText.lenght * ANIM_SPEED : ANIM_RUN_TIME
           setTimeout(() => isRunning = false, lastRunTime)
         }
       }
     }
-    runAnim()
+    startRun()
+
+    function hasChildren(elem) {
+      let regex1 = /<br\s*\/?>|&nbsp;|\s*/g
+      let regex2 = /\n|&nbsp;|\s*/g
+      return elem.innerHTML.replaceAll(regex1, '').toLowerCase() !== elem.innerText.replaceAll(regex2, '').toLowerCase()
+    }
 
     async function addAnim(elem) {
-      runCodeBlink(elem)
+      mainRun(elem)
       await wait(ANIM_DELEY)
     }
 
@@ -77,43 +86,42 @@ function runCodeLoad() {
       return new Promise(resolve => setTimeout(resolve, ms))
     }
 
-    async function runCodeBlink(elem) {
+    async function mainRun(elem) {
       if (OPACITY_TRANSITION) {
         elem.style.opacity = '1'
         let t = (elem.originaltext.length * ANIM_SPEED) / 1000
         elem.style.transition = 'opacity ' + t + 's ease'
       }
-
       if (GROWING_MODE) {
         // growing word version
         for (let i = 1; i < elem.originaltext.length; i++) {
-          elem.innerText = scrambleText(elem.originaltext, i)
+          elem.innerText = shuffleChars(elem.originaltext, i)
           await wait(ANIM_SPEED)
         }
       } else {
         // interval version
-        const interval = setInterval(() => elem.innerText = scrambleText(elem.originaltext, elem.originaltext.length), ANIM_SPEED)
+        const interval = setInterval(() => elem.innerText = shuffleChars(elem.originaltext, elem.originaltext.length), ANIM_SPEED)
         await wait(ANIM_RUN_TIME)
         clearInterval(interval)
       }
-      
+
       elem.innerText = elem.originaltext
       if (OPACITY_TRANSITION) elem.style.transition = ''
     }
 
-    function scrambleText(text, count) {
+    function shuffleChars(text, count) {
       const chars = '*?><[]&@#)(0%$-_:/1?!'.split('')
-      return text.split('').map(x => randomInt(3) > 1 ? randomFromArray(chars) : x).slice(0, count).join('')
+      return text.split('').map(x => randomInt(3) > 1 ? randomArray(chars) : x).slice(0, count).join('')
     }
 
     function randomInt(max) {
       return Math.floor(Math.random() * max)
     }
 
-    function randomFromArray(array) {
+    function randomArray(array) {
       return array[randomInt(array.length)]
     }
   }
 }
 
-addEventListener('load', runCodeLoad)
+addEventListener('load', runShuffleChars)
