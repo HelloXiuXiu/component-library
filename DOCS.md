@@ -5,6 +5,8 @@ used as an example.
 
 animation example name: `Animation Name`
 
+<br>
+
 ## Main Scripts
 ### vanilla
 The directory contains all the code files responsible for animation. All other folders
@@ -18,7 +20,7 @@ using the `<script>` tag:
 
 name: `animation-name.js`
 
-<br><br>
+<br>
 
 ### components
 The directory contains React components that serve as showcases for each animation. Not connected to 
@@ -26,12 +28,14 @@ the animation files directly. Each component has `.jsx` and `.css` files with ma
 
 name: `AnimationName.jsx` / `AnimationName.css`
 
-<br><br>
+<br>
 
 ### controls
 Components that can set/change animation settings by passing an object with all the necessary parameters.
 
 name:
+
+<br>
 
 ### docs
 Components that contain tables with information about all animation settings/parametrs.
@@ -39,7 +43,7 @@ The directory contains one additional file `docs.css` with styles that are reuse
 
 name: `AnimationNameDocs.jsx`
 
-<br><br>
+<br>
 
 ## Additional
 ### cargo
@@ -47,16 +51,16 @@ Functions that are used when an animation is applied to websites built with Carg
 
 name: `discribe-the-purpose.js`
 
-<br><br>
+<br>
 
 ### assets
-???
+Files that are used in `components` to demonstrate the animation (images, videos, fonts).
 
-<br><br>
+<br>
 
 ## Styles
 `index.css` – reset file
 
 `App.css` – global styles
 
-<br><br>
+<br>
