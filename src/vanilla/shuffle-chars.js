@@ -3,6 +3,7 @@
 TODO
 1. check if imports can be done comditionally to remove cargo scripts
 2. make controls
+3. filter elems without children on first iteration
 
 */
 
@@ -31,7 +32,13 @@ function runShuffleChars() {
   const animTrigger = document.querySelector(ANIM_TRIGGER)
   const elemList = animTrigger.querySelectorAll(ELEMS_SELECTOR)
 
-  elemList.forEach(el => el.originaltext = el.innerText)
+  Array.from(elemList).filter(el => hasNoChildren(el)).forEach(el => el.originaltext = el.innerText)
+
+  function hasNoChildren(elem) {
+    let regex1 = /<br\s*\/?>|&nbsp;|\s*/g
+    let regex2 = /\n|&nbsp;|\s*/g
+    return elem.innerHTML.replaceAll(regex1, '').toLowerCase() === elem.innerText.replaceAll(regex2, '').toLowerCase()
+  }
 
   let isRunning = false
 
@@ -52,15 +59,14 @@ function runShuffleChars() {
     isRunning = true
 
     async function startRun() {
-      for (let i = 0; i < elemList.length; i++) {
-        if (hasChildren(elemList[i])) continue
-
-        if (OPACITY_TRANSITION) {
+      if (OPACITY_TRANSITION) {
+        for (let i = 0; i < elemList.length; i++) {
           elemList[i].style.opacity = '0'
           let t = OPACITY_TRANSITION / 1000
           elemList[i].style.transition = 'opacity ' + t + 's ease'
         }
-
+      }
+      for (let i = 0; i < elemList.length; i++) {
         await addAnim(elemList[i])
 
         if (!RUN_ONCE && i === elemList.length - 1) {
@@ -70,12 +76,6 @@ function runShuffleChars() {
       }
     }
     startRun()
-
-    function hasChildren(elem) {
-      let regex1 = /<br\s*\/?>|&nbsp;|\s*/g
-      let regex2 = /\n|&nbsp;|\s*/g
-      return elem.innerHTML.replaceAll(regex1, '').toLowerCase() !== elem.innerText.replaceAll(regex2, '').toLowerCase()
-    }
 
     async function addAnim(elem) {
       mainRun(elem)

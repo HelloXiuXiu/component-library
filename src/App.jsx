@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-// import Draggable from './components/Draggable.jsx'
+import Draggable from './components/Draggable.jsx'
 import ShuffleChars from './components/ShuffleChars.jsx'
 
 function App() {
@@ -10,6 +10,9 @@ function App() {
 
   return (
     <div className="page">
+      <h2 className="animation-title">Draggable</h2>
+      <Draggable />
+      <h2 className="animation-title">Shuffle chars</h2>
       <ShuffleChars />
     </div>
   )

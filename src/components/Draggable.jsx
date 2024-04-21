@@ -1,12 +1,14 @@
-import { useState } from 'react'
 import './Draggable.css'
 
-function Draggable( {children} ) {
-  const [count, setCount] = useState(0)
-
+function Draggable() {
   return (
-    <div className="draggable">
-      {children}
+    <div className="draggable-wrap">
+      <div className="draggable draggable-body-one">
+       <div className="draggable-transform-one">Hello, I'm draggable.</div>
+      </div>
+      <div className="draggable draggable-body-two">
+       <div className="draggable-transform-two">Hello, me to.</div>
+      </div>
     </div>
   )
 }

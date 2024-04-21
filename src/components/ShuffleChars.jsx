@@ -4,7 +4,6 @@ import './ShuffleChars.css'
 function ShuffleChars() {
   return (
     <div className="code-load"> 
-      <div className="codeload-scroll"></div>
       <div className="codeload-trig">
         <ul className="codeload-row">
           <li className="codeload-elem">Hello</li>
@@ -14,7 +13,7 @@ function ShuffleChars() {
         <hr />
         <ul className="codeload-row">
           <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
+          <li className="codeload-elem">Sed <span>u</span>t perspiciatis</li>
           <li className="codeload-elem">World</li>
         </ul>
         <hr />
