@@ -4,22 +4,23 @@ TODO
 0. create cargo finctions directory
 1. deal with children
 2. deal with <br> /n
-!!! 3. check if content loaded and then run! => useEffect (but runs twice ? )
+
 */
 
-function runCodeLoad() {
-  // constrols
-  const ANIM_DELEY = 70
-  const ANIM_SPEED = 70
-  const GROWING_MODE = true
-  const ANIM_RUN_TIME = 1500 // interval run time (works if GROWING_MODE false)
-  const RUN_ONCE = false
-  const ANIM_TRIGGER = '.codeload-trig' // 200px section in the viewport that triggers animation, should contain all selectors
-  const ELEMS_SELECTOR = '.codeload-elem' // (!) should contain only text roots (!) should be children of ANIM_TRIGGER
-  const OPACITY_TRANSITION = 600 // transition - falsy by default
+// constrols
+  let ANIM_DELEY = 70
+  let ANIM_SPEED = 70
+  let GROWING_MODE = true
+  let ANIM_RUN_TIME = 1500 // interval run time (works if GROWING_MODE false)
+  let RUN_ONCE = false
+  let ANIM_TRIGGER = '.codeload-trig' // 200px section in the viewport that triggers animation, should contain all selectors
+  let ELEMS_SELECTOR = '.codeload-elem' // (!) should contain only text roots (!) should be children of ANIM_TRIGGER
+  let OPACITY_TRANSITION = 600 // transition - falsy by default
+  let OFFSET = '200px' // trigger distance (top of ANIM_TRIGGER and bottom of the screen), px or % (% of the screen), positive integer
 
+function runCodeLoad() {
   const animContentPage = document.querySelector(ANIM_TRIGGER)
-  const elemList = [...animContentPage.querySelectorAll(ELEMS_SELECTOR)]
+  const elemList = animContentPage.querySelectorAll(ELEMS_SELECTOR)
 
   elemList.forEach(el => el.originaltext = el.innerText)
 
@@ -29,7 +30,7 @@ function runCodeLoad() {
   const urlCheck3 = window.location?.pathname?.startsWith('/edit')
   if (document.body.classList.contains('editing') || urlCheck2 || urlCheck3) return
 
-  // target page check (homepage)
+  // target page check ('/' - homepage)
   const targetPage = window.location?.pathname
   if (targetPage.length > 1) return
   // ******** cargo code ******** //
@@ -41,9 +42,9 @@ function runCodeLoad() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         document.addEventListener('scroll', AnimateHomePage, { once: true })
-      } 
+      }
     })
-  }, { rootMargin: '0px 0px -200px' })
+  }, { rootMargin: `0px 0px -${OFFSET}` })
 
   observeHomePage.observe(animContentPage)
 
@@ -81,27 +82,26 @@ function runCodeLoad() {
     }
 
     async function runCodeBlink(elem) {
-      const originalText = elem.originaltext
       if (OPACITY_TRANSITION) {
         elem.style.opacity = '1'
-        let t = (originalText.length * ANIM_SPEED) / 1000
+        let t = (elem.originaltext.length * ANIM_SPEED) / 1000
         elem.style.transition = 'opacity ' + t + 's ease'
       }
 
       if (GROWING_MODE) {
         // growing word version
-        for (let i = 1; i < originalText.length; i++) {
-          elem.innerText = scrambleText(originalText, i)
+        for (let i = 1; i < elem.originaltext.length; i++) {
+          elem.innerText = scrambleText(elem.originaltext, i)
           await wait(ANIM_SPEED)
         }
       } else {
         // interval version
-        const interval = setInterval(() => elem.innerText = scrambleText(originalText, originalText.length), ANIM_SPEED)
+        const interval = setInterval(() => elem.innerText = scrambleText(elem.originaltext, elem.originaltext.length), ANIM_SPEED)
         await wait(ANIM_RUN_TIME)
         clearInterval(interval)
       }
       
-      elem.innerText = originalText
+      elem.innerText = elem.originaltext
       if (OPACITY_TRANSITION) elem.style.transition = ''
     }
 
@@ -120,6 +120,4 @@ function runCodeLoad() {
   }
 }
 
-addEventListener("load", (event) => {
-  runCodeLoad()
-})
+addEventListener('load', runCodeLoad)
