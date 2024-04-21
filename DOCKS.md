@@ -1,4 +1,4 @@
-# Component Library File Sctructure and Names
+# Component Library File Structure and Names
 This file describes how files are organized inside the `src` folder.
 To explain how the files should be named within each directory, `Animation Name` is
 used as an example.
@@ -19,7 +19,7 @@ using the `<script>` tag:
 name: `animation-name.js`
 
 ### components
-The directory contains React components that serve as showcases for each animation in use. Not connected to 
+The directory contains React components that serve as showcases for each animation. Not connected to 
 the animation files directly. Each component has `.jsx` and `.css` files with markup and styles respectively.
 
 name: `AnimationName.jsx` / `AnimationName.css`
@@ -30,7 +30,7 @@ Components that can set/change animation settings by passing an object with all 
 name:
 
 
-## Additionals 
+## Additional
 ### cargo
 Functions that are used when an animation is applied to websites built with Cargo Collective.
 
@@ -41,4 +41,5 @@ name: `discribe-the-purpose.js`
 
 ## Styles
 `index.css` – reset file
+
 `App.css` – global styles
