@@ -1,22 +1,24 @@
 /*
 
 TODO
-0. create cargo finctions directory
 1. deal with children
 2. deal with <br> /n
+3. Change function names
 
 */
+import isAdmin from '../cargo/admin-mode-check.js'
+import isHomepage from '../cargo/target-page-check.js'
 
 // constrols
-  let ANIM_DELEY = 70
-  let ANIM_SPEED = 70
-  let GROWING_MODE = true
-  let ANIM_RUN_TIME = 1500 // interval run time (works if GROWING_MODE false)
-  let RUN_ONCE = false
-  let ANIM_TRIGGER = '.codeload-trig' // 200px section in the viewport that triggers animation, should contain all selectors
-  let ELEMS_SELECTOR = '.codeload-elem' // (!) should contain only text roots (!) should be children of ANIM_TRIGGER
-  let OPACITY_TRANSITION = 600 // transition - falsy by default
-  let OFFSET = '200px' // trigger distance (top of ANIM_TRIGGER and bottom of the screen), px or % (% of the screen), positive integer
+let ANIM_DELEY = 70
+let ANIM_SPEED = 70
+let GROWING_MODE = true
+let ANIM_RUN_TIME = 1500 // interval run time (works if GROWING_MODE false)
+let RUN_ONCE = false
+let ANIM_TRIGGER = '.codeload-trig' // 200px section in the viewport that triggers animation, should contain all selectors
+let ELEMS_SELECTOR = '.codeload-elem' // (!) should contain only text roots (!) should be children of ANIM_TRIGGER
+let OPACITY_TRANSITION = 600 // transition - falsy by default
+let OFFSET = '200px' // trigger distance (top of ANIM_TRIGGER and bottom of the screen), px or % (% of the screen), positive integer
 
 function runCodeLoad() {
   const animContentPage = document.querySelector(ANIM_TRIGGER)
@@ -25,14 +27,8 @@ function runCodeLoad() {
   elemList.forEach(el => el.originaltext = el.innerText)
 
   // ******** cargo code ******** //
-  // admin mode check
-  const urlCheck2 = window.location?.pathname?.startsWith('/admin')
-  const urlCheck3 = window.location?.pathname?.startsWith('/edit')
-  if (document.body.classList.contains('editing') || urlCheck2 || urlCheck3) return
-
-  // target page check ('/' - homepage)
-  const targetPage = window.location?.pathname
-  if (targetPage.length > 1) return
+  if (isAdmin()) return
+  if (isHomepage()) return
   // ******** cargo code ******** //
 
   let isRunning = false
