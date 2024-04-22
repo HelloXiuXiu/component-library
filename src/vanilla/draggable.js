@@ -14,15 +14,15 @@ TODO
 // controls
 let ELEMS_SELECTOR = '.draggable'
 
-function makeDraggable(element) {
+function makeDraggable(elem) {
   let offsetX = 0, offsetY = 0, startX = 0, startY = 0
   let isMobile = false
 
-  element.style.willChange = 'transform'
-  element.style.userSelect = 'none'
+  elem.style.willChange = 'transform'
+  elem.style.userSelect = 'none'
 
-  element.addEventListener('mousedown', startDrag)
-  element.addEventListener('touchstart', startDrag)
+  elem.addEventListener('mousedown', startDrag)
+  elem.addEventListener('touchstart', startDrag)
 
   function startDrag(e) {
     if (e.constructor.name === 'MouseEvent') {
@@ -53,7 +53,7 @@ function makeDraggable(element) {
     const y = computedY - startY
     offsetX = computedX - startX
     offsetY = computedY - startY
-    element.style.transform = `translate(${x}px, ${y}px)`
+    elem.style.transform = `translate(${x}px, ${y}px)`
   }
 
   function stopDrag() {

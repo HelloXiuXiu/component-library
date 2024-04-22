@@ -1,72 +1,71 @@
-import { useState, useEffect } from 'react'
 import './ShuffleChars.css'
 
 function ShuffleChars() {
   return (
-    <div className="code-load"> 
-      <div className="codeload-trig">
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+    <div className="shuffle-chars"> 
+      <div className="shuffle-chars-trig">
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed <span>u</span>t perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
-        <ul className="codeload-row">
-          <li className="codeload-elem">Hello</li>
-          <li className="codeload-elem">Sed ut perspiciatis</li>
-          <li className="codeload-elem">World</li>
+        <ul className="shuffle-chars-row">
+          <li className="shuffle-chars-elem">Hello</li>
+          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />
       </div>
-      <div className="codeload-scroll"></div>
+      <div className="shuffle-chars-scroll"></div>
     </div>
   )
 }

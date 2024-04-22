@@ -1,20 +1,20 @@
-.code-load {
+.shuffle-chars {
  
 }
-.codeload-row {
+.shuffle-chars-row {
   display: grid;
   grid-template-columns: 1fr 5fr 2fr;
 }
 
-.codeload-elem {
+.shuffle-chars-elem {
   text-transform: uppercase;
 }
 
-.codeload-elem:last-of-type {
+.shuffle-chars-elem:last-of-type {
   text-align: right;
 }
 
-.codeload-scroll {
+.shuffle-chars-scroll {
   width: 100%;
   height: 1000px;
 }
