@@ -1,0 +1,45 @@
+:root {
+  --lightgray: #E1E1E1;
+}
+
+.docs-wrap {
+  border: 1px solid var(--lightgray);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 60px 0;
+}
+
+.docs-header {
+  background-color: #EDEDED;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: gray;
+}
+
+.docs-header .docs-cell {
+  font-weight: bolder;
+}
+
+.docs-header,
+.docs-row {
+  display: grid;
+  grid-template-columns: 220px 90px 100px 4fr 90px;
+  border-bottom: 1px solid var(--lightgray);
+}
+
+.docs-row:last-of-type {
+  border-bottom: unset;
+}
+
+.docs-cell {
+  border-right: 1px solid var(--lightgray);
+  padding: 10px 15px;
+}
+
+.docs-cell.italic {
+  font-style: italic;
+}
+
+.docs-cell:last-of-type {
+  border-right: unset;
+}

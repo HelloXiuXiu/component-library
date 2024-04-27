@@ -1,27 +1,25 @@
 /*
 
 TODO
-1. check if imports can be done comditionally to remove cargo scripts
+1. check if imports can be done conditionally to remove cargo scripts
 2. make controls
+3. several anim triggers
 
 */
 
 import isAdmin from '../cargo/admin-mode-check.js'
 import isHomepage from '../cargo/target-page-check.js'
 
-// docks
-// 1. all elements that contains anything except text nodes, <br>, <br />, <br/>, &nbsp; will be skiped
-
 // constrols
+let ANIM_TRIGGER = '.shuffle-chars-trig'
+let ELEMS_SELECTOR = '.shuffle-chars-elem'
+let OFFSET = '200px'
 let ANIM_DELEY = 70
 let ANIM_SPEED = 70
 let GROWING_MODE = true
-let ANIM_RUN_TIME = 1500 // interval run time (works if GROWING_MODE false)
+let ANIM_RUN_TIME = 1500
 let RUN_ONCE = false
-let OPACITY_TRANSITION = 600 // transition - falsy by default
-let ANIM_TRIGGER = '.shuffle-chars-trig' // 200px section in the viewport that triggers animation, should contain all selectors
-let ELEMS_SELECTOR = '.shuffle-chars-elem' // (!) should contain only text roots (!) should be children of ANIM_TRIGGER
-let OFFSET = '200px' // trigger distance (top of ANIM_TRIGGER and bottom of the screen), px or % (% of the screen), positive integer
+let OPACITY_TRANSITION = 600
 
 function runShuffleChars() {
   // place for cargo scripts

@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import './ShuffleChars.css'
 
+import ShuffleCharsDocs from '../docs/ShuffleCharsDocs.jsx'
+
 function ShuffleChars() {
   // useEffect(() => {
   // const callback = () => console.log('kek')
@@ -72,6 +74,7 @@ function ShuffleChars() {
         </ul>
         <hr />
       </div>
+      <ShuffleCharsDocs />
       <div className="shuffle-chars-scroll"></div>
     </div>
   )

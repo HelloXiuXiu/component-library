@@ -1,3 +1,16 @@
+:root {
+  font-family: Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+code {
+  font-size: 14px;
+  background-color: #EDEDED;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
 .page {
   padding: 40px 30px;
 }
