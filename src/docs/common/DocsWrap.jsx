@@ -1,4 +1,4 @@
-import './DocsWrap.css'
+import './DocsCommon.css'
 
 function DocsWrap({ children }) {
   return (

@@ -1,4 +1,6 @@
 // import { useEffect } from 'react'
+import ComponentWrap from './common/ComponentWrap.jsx'
+import ComponentTitle from './common/ComponentTitle.jsx'
 import './ShuffleChars.css'
 
 // docs
@@ -12,7 +14,8 @@ function ShuffleChars() {
   // }, [])
 
   return (
-    <div className="shuffle-chars"> 
+    <ComponentWrap> 
+      <ComponentTitle>Shuffle Chars</ComponentTitle>
       <div className="shuffle-chars-trig">
         <ul className="shuffle-chars-row">
           <li className="shuffle-chars-elem">Hello</li>
@@ -76,8 +79,7 @@ function ShuffleChars() {
         <hr />
       </div>
       <ShuffleCharsDocs />
-      <div className="shuffle-chars-scroll"></div>
-    </div>
+    </ComponentWrap>
   )
 }
 

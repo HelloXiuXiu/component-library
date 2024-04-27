@@ -2,12 +2,12 @@
   position: relative;
   height: 400px;
   background: red;
+  z-index: 999;
 }
 
 /* move this styles to js file ??? */
 .draggable {
   z-index: 999;
-
 }
 
 .draggable-body-one,

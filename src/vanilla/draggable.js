@@ -2,7 +2,7 @@
 
 TODO
 1. test mobile
-2. style
+2. style (see notes in css)
 
 */
 
