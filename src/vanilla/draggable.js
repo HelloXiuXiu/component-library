@@ -6,11 +6,6 @@ TODO
 
 */
 
-// docks
-// 1. the selected element should have an absolute position
-// 2. the element should not have transform styles. if transform is needed, create a new wrapper inside of "draggable" element 
-// and apply this styles to this child.
-
 // controls
 let ELEMS_SELECTOR = '.draggable'
 

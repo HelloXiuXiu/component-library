@@ -5,16 +5,23 @@ function ShuffleCharsDocs() {
     <DocsWrap>
       <li className="docs-row">
         <div className="docs-cell"><code>ANIM_TRIGGER</code></div>
-        <div className="docs-cell italic"><code>''</code></div>
+        <div className="docs-cell italic">–</div>
         <div className="docs-cell italic"><code>string</code></div>
-        <div className="docs-cell">Class of id of section in the viewport that triggers animation, should contain all selectors. Should contain all elem selectors</div>
+        <div className="docs-cell">
+          Class of id of section in the viewport that triggers animation, should contain all selectors.
+          Should contain all elem selectors. Example: <code>'.foo'</code>, <code>'#foo'</code>
+        </div>
         <div className="docs-cell italic"></div>
       </li>
       <li className="docs-row">
         <div className="docs-cell"><code>ELEMS_SELECTOR</code></div>
-        <div className="docs-cell italic"><code>''</code></div>
+        <div className="docs-cell italic">–</div>
         <div className="docs-cell italic"><code>string</code></div>
-        <div className="docs-cell">Should contain only text roots (!) should be children of <code>ANIM_TRIGGER</code>. all elements that contains anything except text nodes, <code>&lt;br&gt;</code>, <code>&lt;br /&gt;</code>, <code>&lt;br/&gt;</code>, <code>&amp;nbsp;</code> will be skiped</div>
+        <div className="docs-cell">
+          Should contain only text roots (!) should be children of <code>ANIM_TRIGGER</code>.
+          All elements that contains anything except text nodes, <code>&lt;br&gt;</code>, <code>&lt;br /&gt;</code>, <code>&lt;br/&gt;</code>,
+          <code>&amp;nbsp;</code> will be skiped. Example: <code>'.foo'</code>, <code>'#foo'</code>
+        </div>
         <div className="docs-cell italic"></div>
       </li>
       <li className="docs-row">

@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import './ShuffleChars.css'
 
+// docs
 import ShuffleCharsDocs from '../docs/ShuffleCharsDocs.jsx'
 
 function ShuffleChars() {

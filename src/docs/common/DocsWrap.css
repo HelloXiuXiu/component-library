@@ -31,8 +31,17 @@
   border-bottom: unset;
 }
 
+.docs-row.wip {
+  background-color: #FFEFEF;
+}
+
 .docs-cell {
   border-right: 1px solid var(--lightgray);
+  padding: 10px 15px 20px 15px;
+}
+
+.docs-header .docs-cell,
+.docs-row:last-of-type .docs-cell {
   padding: 10px 15px;
 }
 
