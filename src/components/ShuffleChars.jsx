@@ -1,6 +1,13 @@
+import { useEffect } from 'react'
 import './ShuffleChars.css'
 
 function ShuffleChars() {
+  // useEffect(() => {
+  // const callback = () => console.log('kek')
+  // document.addEventListener('scroll', callback, {once: true})
+  //  return () => document.removeEventListener('scroll', callback, {once: true})
+  // }, [])
+
   return (
     <div className="shuffle-chars"> 
       <div className="shuffle-chars-trig">
@@ -18,7 +25,7 @@ function ShuffleChars() {
         <hr />
         <ul className="shuffle-chars-row">
           <li className="shuffle-chars-elem">Hello</li>
-          <li className="shuffle-chars-elem">Sed ut perspiciatis</li>
+          <li className="shuffle-chars-elem">S<span>e</span>d ut perspiciatis</li>
           <li className="shuffle-chars-elem">World</li>
         </ul>
         <hr />

@@ -24,12 +24,11 @@ let ELEMS_SELECTOR = '.shuffle-chars-elem' // (!) should contain only text roots
 let OFFSET = '200px' // trigger distance (top of ANIM_TRIGGER and bottom of the screen), px or % (% of the screen), positive integer
 
 function runShuffleChars() {
-  // cargo scripts: if (isAdmin()) return; if (isHomepage()) return;
+  // place for cargo scripts
   const animTrigger = document.querySelector(ANIM_TRIGGER)
   const elemList = animTrigger.querySelectorAll(ELEMS_SELECTOR)
 
-  const elemArray = Array.from(elemList).filter(el => hasNoChildren(el))
-  elemArray.forEach(el => el.originaltext = el.innerText)
+  const elemArray = Array.from(elemList, (el) => hasNoChildren(el) ? saveOriginalText(el) : false).filter(Boolean)
 
   let isRunning = false
 
@@ -63,7 +62,7 @@ function runShuffleChars() {
       }
 
       if (!RUN_ONCE) {
-        const lastRunTime = GROWING_MODE ? elemArray[elemArray.length - 1].innerText.lenght * ANIM_SPEED : ANIM_RUN_TIME
+        const lastRunTime = GROWING_MODE ? elemArray[elemArray.length - 1].originaltext.lenght * ANIM_SPEED : ANIM_RUN_TIME
         setTimeout(() => isRunning = false, lastRunTime)
       }
     }
@@ -98,6 +97,11 @@ async function animationBody(elem) {
 
   elem.innerText = elem.originaltext
   if (OPACITY_TRANSITION) elem.style.transition = ''
+}
+
+function saveOriginalText(elem) {
+  elem.originaltext = elem.innerText
+  return elem
 }
 
 function hasNoChildren(elem) {
