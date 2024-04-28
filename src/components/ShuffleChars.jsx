@@ -6,6 +6,9 @@ import './ShuffleChars.css'
 // docs
 import ShuffleCharsDocs from '../docs/ShuffleCharsDocs.jsx'
 
+//controls
+import ShuffleCharsControls from '../controls/ShuffleCharsControls.jsx'
+
 function ShuffleChars() {
   // useEffect(() => {
   // const callback = () => console.log('kek')
@@ -16,6 +19,7 @@ function ShuffleChars() {
   return (
     <ComponentWrap> 
       <ComponentTitle>Shuffle Chars</ComponentTitle>
+      <ShuffleCharsControls />
       <div className="shuffle-chars-trig">
         <ul className="shuffle-chars-row">
           <li className="shuffle-chars-elem">Hello</li>

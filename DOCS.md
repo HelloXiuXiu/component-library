@@ -33,7 +33,7 @@ name: `AnimationName.jsx` / `AnimationName.css`
 ### controls
 Components that can set/change animation settings by passing an object with all the necessary parameters.
 
-name:
+name: `AnimationNameControls.jsx`
 
 <br>
 
