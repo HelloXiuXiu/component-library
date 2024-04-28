@@ -58,6 +58,11 @@ Files that are used in `components` to demonstrate the animation (images, videos
 
 <br>
 
+### common
+Common directory can be inside of any directory. Files that are shared by several or all components in this directory. Can contain only one `.css` file for all common `.jsx` files.
+
+<br>
+
 ## Styles
 `index.css` – reset file
 
