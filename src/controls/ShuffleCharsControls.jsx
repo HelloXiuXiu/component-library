@@ -1,38 +1,44 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import ControlWrap from './common/ControlWrap.jsx'
 
-let initialState = {
-  OFFSET: '200px',
-  ANIM_DELEY: 70,
-  GROWING_MODE: true
-}
-
-function ShuffleCharsControls() {
+function ShuffleCharsControls({ initialState }) {
   const [offset, setOffset] = useState(initialState.OFFSET)
   const [animDelay, setAnimDelay] = useState(initialState.ANIM_DELEY)
   const [growingMode, setGrowingMode] = useState(initialState.GROWING_MODE)
 
-  function handleOffsetInput(e) {
-    let id = e.target.id.replace(/-./g, char => char.slice(1).toUpperCase())
-    console.log(id)
-    setOffset(e.target.value)
+  useEffect(() => {
+    
+  },[offset, animDelay, growingMode])
+
+  function handleInput(e) {
+    const id = e.target.id.replace(/-./g, char => char.slice(1).toUpperCase())
+    switch(id) {
+      case 'offset':
+        setOffset(e.target.value)
+        break
+      case 'animDelay':
+        setAnimDelay(e.target.value)
+        break
+      case 'growingMode':
+        setGrowingMode(!growingMode)
+    }
   }
 
-  function handleOffsetSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault()
-    initialState.OFFSET = offset
-    console.log(initialState)
-    setOffset('')
+    console.log(offset)
   }
 
   return (
-    <div>
+    <ControlWrap>
       <form>
         <label htmlFor="offset">OFFSET</label>
-        <input id="offset" type="text" value={offset} onChange={handleOffsetInput} onSubmit={handleOffsetSubmit}/>
+        <input id="offset" type="text" value={offset} onChange={handleInput} onSubmit={handleSubmit}/>
         <label htmlFor="growing-mode">GROWING_MODE</label>
-        <input id="growing-mode" type="checkbox" value={growingMode} onChange={handleOffsetInput} onSubmit={handleOffsetSubmit}/>
+        <input id="growing-mode" type="checkbox" checked={growingMode} onChange={handleInput} onSubmit={handleSubmit}/>
+        <input type="submit" value="Submit" onSubmit={handleSubmit}/>
       </form>
-    </div>
+    </ControlWrap>
   )
 }
 

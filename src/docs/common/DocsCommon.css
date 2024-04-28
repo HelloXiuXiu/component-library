@@ -1,16 +1,12 @@
-:root {
-  --lightgray: #E1E1E1;
-}
-
 .docs-wrap {
   border: 1px solid var(--lightgray);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   overflow: hidden;
   margin: 60px 0;
 }
 
 .docs-header {
-  background-color: #EDEDED;
+  background-color: var(--lightgray-background);
   font-size: 12px;
   text-transform: uppercase;
   color: gray;
@@ -32,7 +28,7 @@
 }
 
 .docs-row.wip {
-  background-color: #FFEFEF;
+  background-color: var(--lightpink);
 }
 
 .docs-cell {
@@ -42,7 +38,7 @@
 
 .docs-header .docs-cell,
 .docs-row:last-of-type .docs-cell {
-  padding: 10px 15px;
+  padding: var(--padding);
 }
 
 .docs-cell.italic {

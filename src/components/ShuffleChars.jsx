@@ -3,11 +3,19 @@ import ComponentWrap from './common/ComponentWrap.jsx'
 import ComponentTitle from './common/ComponentTitle.jsx'
 import './ShuffleChars.css'
 
-// docs
+// docs & controls
 import ShuffleCharsDocs from '../docs/ShuffleCharsDocs.jsx'
-
-//controls
 import ShuffleCharsControls from '../controls/ShuffleCharsControls.jsx'
+
+// TODO:
+// 1. getInitialState
+// 2. setInitialState
+
+let initialState = {
+  OFFSET: '200px',
+  ANIM_DELEY: 70,
+  GROWING_MODE: true
+}
 
 function ShuffleChars() {
   // useEffect(() => {
@@ -19,7 +27,7 @@ function ShuffleChars() {
   return (
     <ComponentWrap> 
       <ComponentTitle>Shuffle Chars</ComponentTitle>
-      <ShuffleCharsControls />
+      <ShuffleCharsControls initialState={initialState}/>
       <div className="shuffle-chars-trig">
         <ul className="shuffle-chars-row">
           <li className="shuffle-chars-elem">Hello</li>

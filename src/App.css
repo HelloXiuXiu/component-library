@@ -1,4 +1,12 @@
 :root {
+  --padding: 10px 15px;
+  --border-radius: 10px;
+  --lightgray: #E1E1E1;
+  --lightgray-background: #EDEDED;
+  --lightpink: #FFEFEF;
+}
+
+body {
   font-family: Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
