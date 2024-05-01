@@ -1,7 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import ControlWrap from './common/ControlWrap.jsx'
 
-function ShuffleCharsControls({ initialState }) {
+import { AnimContext } from '../contexts/initial-states.jsx'
+
+function ShuffleCharsControls() {
+  const initialState = useContext(AnimContext).shuffleChars
+
   const [offset, setOffset] = useState(initialState.OFFSET)
   const [animDelay, setAnimDelay] = useState(initialState.ANIM_DELEY)
   const [growingMode, setGrowingMode] = useState(initialState.GROWING_MODE)
@@ -31,7 +35,7 @@ function ShuffleCharsControls({ initialState }) {
 
   return (
     <ControlWrap>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="offset">OFFSET</label>
         <input id="offset" type="text" value={offset} onChange={handleInput} onSubmit={handleSubmit}/>
         <label htmlFor="growing-mode">GROWING_MODE</label>

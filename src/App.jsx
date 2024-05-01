@@ -1,18 +1,19 @@
-import { useState } from 'react'
+import { createContext } from 'react'
 import './App.css'
 
 import Draggable from './components/Draggable.jsx'
 import ShuffleChars from './components/ShuffleChars.jsx'
 
-function App() {
-  // const [theme, setTheme] = useState('dark') // dark, light
-  // const [style, setStyle] = useState('s') // s, m, l
+import { AnimProvider } from './contexts/initial-states.jsx'
 
+function App() {
   return (
-    <div className="page">
-      <Draggable />
-      <ShuffleChars />
-    </div>
+      <div className="page">
+        <AnimProvider>
+          <Draggable />
+          <ShuffleChars />
+        </AnimProvider>
+      </div>
   )
 }
 

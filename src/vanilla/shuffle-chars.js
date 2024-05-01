@@ -1,5 +1,11 @@
-/*
+import isAdmin from '../cargo/admin-mode-check.js'
+import isHomepage from '../cargo/target-page-check.js'
 
+import getState from '../controls/helpers/getState.js'
+
+//console.log(getState())
+
+/*
 TODO
 1. check if imports can be done conditionally to remove cargo scripts
 2. make controls
@@ -7,9 +13,6 @@ TODO
 */
 
 // when state is reset, call the main function runShuffleChars() again
-
-import isAdmin from '../cargo/admin-mode-check.js'
-import isHomepage from '../cargo/target-page-check.js'
 
 // constrols
 let ANIM_TRIGGER = '.shuffle-chars-trig'
