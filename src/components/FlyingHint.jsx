@@ -3,7 +3,7 @@ import ComponentTitle from './common/ComponentTitle.jsx'
 import './FlyingHint.css'
 
 // docs
-//import FlyingHintDocs from '../docs/FlyingHintDocs.jsx'
+import FlyingHintDocs from '../docs/FlyingHintDocs.jsx'
 
 function FlyingHint() {
   return (
@@ -13,6 +13,7 @@ function FlyingHint() {
         <div className="flying-trig trig-one" data-hint="Hello">Hover me</div>
         <div className="flying-trig trig-two" data-hint="World">Hover me</div>
       </div>
+      <FlyingHintDocs />
     </ComponentWrap>
   )
 }
