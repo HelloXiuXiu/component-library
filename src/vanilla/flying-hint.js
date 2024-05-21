@@ -3,10 +3,15 @@
 //    add [data-edge="true"] attribute
 // 3. to make a part of a hint text bolder, wrap it into /b.../b
 
+// TO-D0
+// 1. controls
+// 2. handle case with parrent and children being triggers
+
 // constrols
 let COLOR = '#000000'
 let BACKGROUND_COLOR = '#F9614D'
 let HINT_CLASS = '' // class to set some additional styles
+let EASE = 0.08
 
 function runFlyingHint() {
   const hintTriggers = document.querySelectorAll('[data-hint]')
@@ -21,8 +26,10 @@ function runFlyingHint() {
   hint.style.opacity = '0'
   hint.style.zIndex = '9999'
   hint.style.borderRadius = '40px'
-  hint.style.padding = '4px 8px'
+  hint.style.padding = '4px 16px'
   hint.style.transition = 'opacity 0.4s ease'
+  hint.style.color = COLOR
+  hint.style.backgroundColor = BACKGROUND_COLOR
 
   if (HINT_CLASS) hint.classList.add(HINT_CLASS)
 
@@ -55,7 +62,7 @@ function runFlyingHint() {
           indY = 0
         }
       })
-      trigger.addEventListener('mouseleave', () => {
+      trigger.addEventListener('mouseout', () => {
         hint.style.opacity = '0'
       })
     })
@@ -84,7 +91,7 @@ function runFlyingHint() {
     const regex = /\/b.*?\/b/
     if (text.match(regex)) {
       const updatedText = text.match(regex)[0].slice(2, -2)
-      hint.innerHTML = text.replace(regex, `<span class="bolder">${updatedText}</span>`)
+      hint.innerHTML = text.replace(regex, `<span style="font-weight: bolder;">${updatedText}</span>`)
     } else {
       hint.innerText = text
     }
@@ -97,11 +104,8 @@ function runFlyingHint() {
 
   function easeTo() {
     const hintBounds = hint.getBoundingClientRect()
-    const dX = mouseX - (hintBounds.left + shiftX + indX)
-    const dY = mouseY - (hintBounds.top - shiftY + indY)
-
-    posX += dX * ease
-    posY += dY * ease
+    posX += (mouseX - (hintBounds.left + shiftX + indX)) * EASE
+    posY += (mouseY - (hintBounds.top - shiftY + indY)) * EASE
   }
 
   window.addEventListener('resize', () => {

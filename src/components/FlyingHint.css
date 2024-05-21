@@ -1,0 +1,31 @@
+.flying-hint-wrap {
+  position: relative;
+  height: 400px;
+  background: red;
+  z-index: 999;
+}
+
+.flying-trig {
+  position: absolute;
+  width: 240px;
+  height: 160px;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.trig-one {
+  top: 15%;
+  left: 35%;
+  transform: rotate(-15deg);
+}
+
+.trig-two {
+  top: 40%;
+  left: 15%;
+  transform: rotate(10deg);
+}

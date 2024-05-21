@@ -3,6 +3,7 @@ import './App.css'
 
 import Draggable from './components/Draggable.jsx'
 import ShuffleChars from './components/ShuffleChars.jsx'
+import FlyingHint from './components/FlyingHint.jsx'
 
 import { AnimProvider } from './contexts/initial-states.jsx'
 
@@ -12,6 +13,7 @@ function App() {
         <AnimProvider>
           <Draggable />
           <ShuffleChars />
+          <FlyingHint />
         </AnimProvider>
       </div>
   )
