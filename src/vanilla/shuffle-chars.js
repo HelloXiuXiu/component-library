@@ -26,7 +26,6 @@ let RUN_ONCE = false
 let OPACITY_TRANSITION = 600
 
 function runShuffleChars() {
-  // place for cargo scripts
   const animTrigger = document.querySelector(ANIM_TRIGGER)
   const elemList = animTrigger.querySelectorAll(ELEMS_SELECTOR)
 
@@ -72,6 +71,7 @@ function runShuffleChars() {
   }
 }
 
+// helper functions
 async function addAnim(elem) {
   animationBody(elem)
   await wait(ANIM_DELEY)
