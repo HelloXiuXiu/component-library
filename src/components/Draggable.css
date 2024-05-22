@@ -1,7 +1,8 @@
 .draggable-wrap {
   position: relative;
   height: 400px;
-  background: red;
+  background: var(--green-background);
+  border-radius: var(--border-radius-large);
   z-index: 999;
 }
 

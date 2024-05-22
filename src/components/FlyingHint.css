@@ -1,8 +1,9 @@
 .flying-hint-wrap {
   position: relative;
   height: 400px;
-  background: red;
+  background: var(--green-background);
   z-index: 999;
+  border-radius: var(--border-radius-large);
 }
 
 .flying-trig {

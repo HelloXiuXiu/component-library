@@ -1,9 +1,11 @@
 :root {
   --padding: 10px 15px;
   --border-radius: 10px;
+  --border-radius-large: 20px;
   --lightgray: #E1E1E1;
   --lightgray-background: #EDEDED;
   --lightpink: #FFEFEF;
+  --green-background: #899D80;
 }
 
 body {

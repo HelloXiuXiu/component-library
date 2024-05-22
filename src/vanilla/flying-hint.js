@@ -9,9 +9,11 @@
 
 // constrols
 let COLOR = '#000000'
-let BACKGROUND_COLOR = '#F9614D'
+let BACKGROUND_COLOR = '#FF6A49'
 let HINT_CLASS = '' // class to set some additional styles
 let EASE = 0.08
+let SHIFT_X = 10
+let SHIFT_Y = 45
 
 function runFlyingHint() {
   const hintTriggers = document.querySelectorAll('[data-hint]')
@@ -40,10 +42,6 @@ function runFlyingHint() {
   let indX = 0
   let indY = 0
 
-  const shiftX = 10
-  const shiftY = 45
-  const ease = 0.08
-
   let isMobile = !window.matchMedia('(hover: hover)').matches
   let mobileReset = false
 
@@ -65,10 +63,10 @@ function runFlyingHint() {
       })
       trigger.addEventListener('mouseout', (e) => {
         e.stopPropagation()
-        if (!e.relatedTarget.dataset?.hint) {
+        if (!e.relatedTarget?.dataset?.hint) {
           hint.style.opacity = '0'
         } else {
-          updateText(e.relatedTarget.dataset?.hint)
+          updateText(e.relatedTarget.dataset.hint)
         }
       })
     })
@@ -104,14 +102,14 @@ function runFlyingHint() {
   }
 
   function handleEdge() {
-    indX = (mouseX > w - hint.offsetWidth + shiftX) ? hint.offsetWidth - shiftX : 0
-    indY = (mouseY > h - hint.offsetHeight - shiftY) ? hint.offsetHeight * 2 + shiftY : 0
+    indX = (mouseX > w - hint.offsetWidth + SHIFT_X) ? hint.offsetWidth - SHIFT_X : 0
+    indY = (mouseY > h - hint.offsetHeight - SHIFT_Y) ? hint.offsetHeight * 2 + SHIFT_Y : 0
   }
 
   function easeTo() {
     const hintBounds = hint.getBoundingClientRect()
-    posX += (mouseX - (hintBounds.left + shiftX + indX)) * EASE
-    posY += (mouseY - (hintBounds.top - shiftY + indY)) * EASE
+    posX += (mouseX - (hintBounds.left + SHIFT_X + indX)) * EASE
+    posY += (mouseY - (hintBounds.top - SHIFT_Y + indY)) * EASE
   }
 
   window.addEventListener('resize', () => {
