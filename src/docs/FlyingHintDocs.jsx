@@ -33,6 +33,22 @@ function FlyingHintDocks() {
           Number from 0 to 1.</div>
         <div className="docs-cell italic"></div>
       </li>
+      <li className="docs-row">
+        <div className="docs-cell"><code>SHIFT_X</code></div>
+        <div className="docs-cell italic">10</div>
+        <div className="docs-cell italic"><code>number</code></div>
+        <div className="docs-cell">
+          The horisontal distance between the cursor and the flying hint (px).</div>
+        <div className="docs-cell italic"></div>
+      </li>
+      <li className="docs-row">
+        <div className="docs-cell"><code>SHIFT_Y</code></div>
+        <div className="docs-cell italic">45</div>
+        <div className="docs-cell italic"><code>number</code></div>
+        <div className="docs-cell">
+          The vertical distance between the cursor and the flying hint (px).</div>
+        <div className="docs-cell italic"></div>
+      </li>
     </DocsWrap>
   )
 }
