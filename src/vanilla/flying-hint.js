@@ -5,7 +5,7 @@
 
 // TO-D0
 // 1. controls
-// 2. handle case with parrent and children being triggers
+// 2. test with other no-trigger children
 
 // constrols
 let COLOR = '#000000'
@@ -27,7 +27,7 @@ function runFlyingHint() {
   hint.style.zIndex = '9999'
   hint.style.borderRadius = '40px'
   hint.style.padding = '4px 16px'
-  hint.style.transition = 'opacity 0.4s ease'
+  hint.style.transition = 'opacity 0.2s ease'
   hint.style.color = COLOR
   hint.style.backgroundColor = BACKGROUND_COLOR
 
@@ -52,7 +52,8 @@ function runFlyingHint() {
 
   function showHint() {
     hintTriggers.forEach(trigger => {
-      trigger.addEventListener('mouseenter', () => {
+      trigger.addEventListener('mouseenter', (e) => {
+        e.stopPropagation()
         hint.style.opacity = '1'
         updateText(trigger.dataset.hint)
         if (trigger.dataset.edge) {
@@ -62,8 +63,13 @@ function runFlyingHint() {
           indY = 0
         }
       })
-      trigger.addEventListener('mouseout', () => {
-        hint.style.opacity = '0'
+      trigger.addEventListener('mouseout', (e) => {
+        e.stopPropagation()
+        if (!e.relatedTarget.dataset?.hint) {
+          hint.style.opacity = '0'
+        } else {
+          updateText(e.relatedTarget.dataset?.hint)
+        }
       })
     })
   }
