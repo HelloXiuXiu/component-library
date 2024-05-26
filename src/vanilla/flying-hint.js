@@ -30,6 +30,7 @@ function runFlyingHint() {
   hint.style.borderRadius = '40px'
   hint.style.padding = '4px 16px'
   hint.style.transition = 'opacity 0.2s ease'
+  hint.style.pointerEvents = 'none'
   hint.style.color = COLOR
   hint.style.backgroundColor = BACKGROUND_COLOR
 
@@ -50,7 +51,7 @@ function runFlyingHint() {
 
   function showHint() {
     hintTriggers.forEach(trigger => {
-      trigger.addEventListener('mouseenter', (e) => {
+      trigger.addEventListener('mouseover', (e) => {
         e.stopPropagation()
         hint.style.opacity = '1'
         updateText(trigger.dataset.hint)
